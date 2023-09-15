@@ -416,7 +416,7 @@ nav .fa-solid{
 
 @media only screen and (max-width: 600px){
   #header{
-    background-image: url(https://drive.google.com/file/d/10s746qGdFdme_WM0gpn2ZsNK1qWzHJQZ/view?usp=sharing);
+    background-image: url(images/phoneBg.png);
   }
 
   .header-text{
