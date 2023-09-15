@@ -481,6 +481,16 @@ nav .fa-solid{
     font-size: 10px;
   }
 
+ .contact-left h1{
+  font-size: 30px;
+ }
+ .contact-left p{
+  font-size: 10px;
+ }
+ .contact-left p i{
+  font-size: 15px;
+ }
+
   .contact-right{
     display: none;
   }
