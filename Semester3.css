@@ -1,0 +1,21 @@
+p{
+
+}
+
+h1{
+    color: brown;
+}
+
+/* Define a general-purpose hover animation class */
+.pop {
+    transition: transform 0.8s ease, opacity 0.2s ease;
+    cursor:default;
+  }
+  
+  /* Add a hover effect */
+  .pop:hover {
+    /* transform: scale(1.1); /* Increase the size by 10% */
+    transform: translateX(10px);
+    
+  }
+  
