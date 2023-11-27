@@ -1,0 +1,56 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Add this line to hide horizontal scrollbar */
+  }
+
+  p, h1{
+    user-select: none;
+  }
+
+  
+
+  #showcase-container{
+      display: flex;
+      gap: 10vmin;
+      position: absolute;
+      left: 50%;
+      transition: left 0.9s ease-in-out; /* Adjust the duration and timing function as needed */
+      top: 30%;
+      transform: translate(-10%, 0%) ;
+  }
+
+  .showcase-item {
+    
+    position: relative;
+}
+
+.image-text {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    color: #fff; /* Adjust the text color as needed */
+    padding: 8px;
+    margin: 0;
+    text-align: center;
+}
+
+.showcase-box {
+    
+    width: 60vmin; 
+    height: 40vmin;
+    object-fit: cover;
+    user-select: none;
+    border-radius: 10px;
+    object-position: center;
+    transition: transform 0.5s ease-in-out; /* Add this line for smooth transition */
+
+    
+}
+
+.showcase-box:hover {
+    transform: scale(1.05); /* Increase the scale factor for a more pronounced effect */
+}
