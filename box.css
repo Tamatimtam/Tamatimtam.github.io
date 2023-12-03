@@ -8,7 +8,7 @@
 
     .bento-box {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(10, 1fr);
       grid-template-rows: auto 2fr 1fr; /* Adjust the row sizes as needed */
       gap: 10px;
       padding: 10px 10%;
@@ -27,7 +27,7 @@
     /* Adjust styles for specific boxes as needed */
     .box1 {
       grid-column: span 2;
-      grid-row: span 2;
+      grid-row: span 50;
     }
 
     .box2 {
