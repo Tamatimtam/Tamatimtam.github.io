@@ -53,4 +53,5 @@ body {
 
 .showcase-box:hover {
     transform: scale(1.05); /* Increase the scale factor for a more pronounced effect */
+    cursor: pointer;
 }
