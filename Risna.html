@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Time</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Comfortaa', cursive;
+            text-align: center;
+            padding-top: 100px;
+            margin: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        p{
+            font-size: 15px;
+            margin-top: 50px;
+            transition: opacity 0.5s;
+            font-family: 'Comfortaa', cursive; 
+        }
+
+        #start-btn {
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s, transform 0.1s;
+            border-radius: 10px;
+        }
+
+        #start-btn:hover {
+            background-color: #444;
+        }
+
+        #start-btn:active {
+            transform: scale(0.95);
+        }
+
+        #story-text {
+            display: none;
+            font-size: 20px;
+            margin-top: 50px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        #particles-js {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            transition: 1s;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            display: none;
+        }
+
+        #flower-video {
+            position: absolute;
+            bottom: 10;
+            margin-top: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            width: 80%; /* Adjust width of the video */
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<p>Top Secret, Hanya untuk mata Risna!</p>
+<button id="start-btn">Start Story</button>
+<p id="story-text"></p>
+
+<div id="particles-js"></div>
+
+<video id="flower-video" loop autoplay>
+    <source src="Flower.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<script>
+    const startBtn = document.getElementById('start-btn');
+    const storyText = document.getElementById('story-text');
+    const particles = document.getElementById('particles-js');
+    const flowerVideo = document.getElementById('flower-video');
+    const storyParts = [
+        "Halowwwwww",
+        "Ga berasa yah udah 1 tahun lebih dari awal kita kenalan",
+        "Dan sekarang udah satu tahun sejak aku ngasih bunga ke kamu pas kamu ada di rumah",
+        "Aku masih inget waktu itu nyiapin bunga dari 1 bulan sebelum dianter",
+        "Aku inget telfon kita pertama kali malem malem aku bilang mau ngasih kamu  bunga",
+        "Aku seneng banget karna pertama kali dapet kesempatan ngasih bunga ke seseorang",
+        "Pas kamu di rumah kita masak barenggg, sarapan barengggg, jajan barengggg",
+        "Dan tiba-tiba bunga yang tadinya mau surprise kubawain pas event,",
+        "langsung dikirim ke rumah kita unboxing bareng bareng",
+        "Sksksks, seru banget kalo nginget masa masa itu",
+        "Makasih banyak yah sudah memberi memori yang bagus banget tahun kemaren",
+        "Mohon maaf yah tahun ini aku belum bisa beliin kamu bunga lagi .",
+        "Maaf belum bisa bertemu kaya tahun kemaren lagi.",
+        "Tapi aku masih pengen ngasih sesuatu buat kamu",
+        "Jadi ini adalah yang aku bisa kasih ke kamu",
+        "waktu, usaha, dan kata-kata penyemangat",
+        "dalam bentuk projek kecil-kecilan ini",
+        "Karna aku inget pesan kamu bulan januari kemarin",
+        "Yang penting ada orang untuk semangatin kamu.",
+        "Dan aku akan selalu semangatin kamu selagi masih bisa",
+        "Jadi, untuk tahun ini, aku kasih bunganya virtual dulu yah",
+        "Doain aku di masa depan bisa ngasih kamu bunga sebanyak apapun kapanpun kamu mau",
+        "Percaya aku sekarang sedang berusaha banget.",
+        "Jadi, teruntuk kebanggaanku...",
+        "Wanita terkuat dalam hidupku...",
+        "Semoga kamu senantiasa merasa dicintai yah.",
+        "Dari sekarang, esok, dan selamanya",
+    ];
+    let currentIndex = 0;
+
+    startBtn.addEventListener('click', () => {
+        startBtn.style.opacity = '0';
+        startBtn.style.pointerEvents = 'none'; // Disable button while fading
+        setTimeout(() => {
+            startBtn.style.display = 'none';
+            storyText.style.display = 'block';
+            fadeIn(storyText);
+            displayNextPart();
+        }, 1000);
+    });
+
+    function displayNextPart() {
+        if (currentIndex < storyParts.length) {
+            const part = storyParts[currentIndex++];
+            storyText.textContent = part;
+            fadeIn(storyText);
+            setTimeout(() => {
+                fadeOut(storyText);
+                setTimeout(displayNextPart, 1000); // Change text every 8 seconds
+            }, 8000); // Delay between transitions
+        } else {
+            storyText.textContent = "Happy Valentines Risna.";
+            fadeIn(storyText);
+            particles.style.display = 'block'; // Show particle animation
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 300, // Adjust number of particles
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff" // Set color to white
+                    },
+                    "shape": {
+                        "type": "circle", // Set shape to circle
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true
+                    },
+                    "size": {
+                        "value": 3, // Adjust size of particles
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": false, // Disable lines connecting particles
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1, // Adjust speed of falling particles
+                        "direction": "bottom",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": false,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": false,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    }
+                },
+                "retina_detect": true
+            }); // Start particle animation
+
+            setTimeout(() => {
+                fadeIn(flowerVideo);
+            }, 1000); // Delay before showing video
+        }
+    }
+
+    function fadeIn(element) {
+        element.style.opacity = '1';
+    }
+
+    function fadeOut(element) {
+        element.style.opacity = '0';
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</body>
+</html>
